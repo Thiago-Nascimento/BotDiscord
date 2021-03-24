@@ -1,0 +1,14 @@
+{
+  "name": "bot-chamada",
+  "version": "1.0.0",
+  "description": "Bot do discord que exporta a lista de participantes de uma chamada de voz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}
