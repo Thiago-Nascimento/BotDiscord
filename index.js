@@ -6,6 +6,8 @@ const client = new Discord.Client();
 const prefix = "!";
 
 client.on("message", (message) => {
+    const server = client.guilds.cache.get("824279131617230869");
+    
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
 
@@ -21,15 +23,27 @@ client.on("message", (message) => {
         const canalTarde = "824299387382923345";
         
         let turno;
+        let canal;
+        let presentes;
 
         const agora = new Date;
     
         if (agora.getHours() >= 5 && agora.getHours() < 12) { turno = "manha" }
         else if (agora.getHours() >= 12 && agora.getHours() < 18) { turno = "tarde" }
+        
+        if (turno === "manha") {
+            canal = server.channels.cache.get(canalManha);
+        } else if (turno === "tarde") {
+            canal = server.channels.cache.get(canalTarde);
+        }
 
+        presentes = canal.members;
+
+        for ([memberID, member] of presentes) {
+            console.log(member.displayName);
+            message.reply(member.displayName)
+        }
         
-        
-        message.reply(`${turno}`);
     }
 });
 
